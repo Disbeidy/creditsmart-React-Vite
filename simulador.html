@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simulador de Créditos - CreditSmart</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+
+  <!-- NAVEGACIÓN -->
+  <nav class="navbar">
+    <div class="container">
+      <h1 class="logo">
+        <img src="Img/Logo cerdito.ico" alt="Logo cerdito" width="40" style="vertical-align: middle; margin-right: 8px;" />
+        CreditSmart
+      </h1>
+      <ul class="menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="simulador.html">Simulador</a></li>
+        <li><a href="solicitar.html">Solicitar Crédito</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ENCABEZADO -->
+  <header class="hero">
+    <div class="container">
+      <h2>Simulador de Créditos</h2>
+      <p>Filtra y explora las opciones que se ajustan a tus necesidades.</p>
+    </div>
+  </header>
+
+  <!-- FILTROS VISUALES -->
+  <main class="container">
+    <section class="simulador-section">
+      <form class="simulador-form">
+        <label for="busqueda">Buscar por nombre del producto:</label>
+        <input type="text" id="busqueda" name="busqueda" placeholder="Ej: Crédito Vivienda" />
+
+        <label for="rango">Filtrar por monto:</label>
+        <select id="rango" name="rango">
+          <option value="">Selecciona un rango</option>
+          <option value="1-10">Entre $1M y $10M</option>
+          <option value="10-50">Entre $10M y $50M</option>
+          <option value="50-100">Entre $50M y $100M</option>
+          <option value="100-300">Más de $100M</option>
+        </select>
+
+        <button type="submit">Filtrar</button>
+      </form>
+    </section>
+
+    <!-- RESULTADOS ESTÁTICOS -->
+    <section class="credit-section">
+      <h3>Resultados</h3>
+      <div class="product-grid">
+
+        <!-- Tarjetas estáticas -->
+        <div class="credit-card">
+          <span class="icon">💰</span>
+          <h4>Crédito Libre Inversión</h4>
+          <p>Dinero rápido para lo que necesites sin tener que justificar su uso.</p>
+          <p><strong>Tasa:</strong> 1.4% mensual</p>
+          <p><strong>Monto:</strong> $5.000.000 - $100.000.000</p>
+          <p><strong>Plazo:</strong> 12 - 84 meses</p>
+          <a href="solicitar.html" class="btn">Solicitar</a>
+        </div>
+
+        <div class="credit-card">
+          <span class="icon">🚗</span>
+          <h4>Crédito Vehículo</h4>
+          <p>Financia la compra de tu carro nuevo o usado con tasas competitivas.</p>
+          <p><strong>Tasa:</strong> 1.2% mensual</p>
+          <p><strong>Monto:</strong> $10.000.000 - $50.000.000</p>
+          <p><strong>Plazo:</strong> 12 - 60 meses</p>
+          <a href="solicitar.html" class="btn">Solicitar</a>
+        </div>
+
+        <div class="credit-card">
+          <span class="icon">🏠</span>
+          <h4>Crédito Vivienda</h4>
+          <p>Haz realidad el sueño de tu casa propia con plazos flexibles.</p>
+          <p><strong>Tasa:</strong> 1.0% mensual</p>
+          <p><strong>Monto:</strong> $20.000.000 - $300.000.000</p>
+          <p><strong>Plazo:</strong> 24 - 240 meses</p>
+          <a href="solicitar.html" class="btn">Solicitar</a>
+        </div>
+
+        <div class="credit-card">
+          <span class="icon">🎓</span>
+          <h4>Crédito Educativo</h4>
+          <p>Invierte en tu formación académica con respaldo financiero.</p>
+          <p><strong>Tasa:</strong> 0.9% mensual</p>
+          <p><strong>Monto:</strong> $2.000.000 - $30.000.000</p>
+          <p><strong>Plazo:</strong> 12 - 48 meses</p>
+          <a href="solicitar.html" class="btn">Solicitar</a>
+        </div>
+
+        <div class="credit-card">
+          <span class="icon">🏢</span>
+          <h4>Crédito Empresarial</h4>
+          <p>Impulsa tu negocio con capital para inversión, expansión o liquidez.</p>
+          <p><strong>Tasa:</strong> 1.5% mensual</p>
+          <p><strong>Monto:</strong> $10.000.000 - $200.000.000</p>
+          <p><strong>Plazo:</strong> 12 - 84 meses</p>
+          <a href="solicitar.html" class="btn">Solicitar</a>
+        </div>
+
+        <div class="credit-card">
+          <span class="icon">🐷</span>
+          <h4>Crédito Ahorro Programado</h4>
+          <p>Guarda dinero mes a mes y accede a beneficios financieros al cumplir metas de ahorro.</p>
+          <p><strong>Tasa:</strong> 0.8% mensual</p>
+          <p><strong>Monto:</strong> $500.000 - $10.000.000</p>
+          <p><strong>Plazo:</strong> hasta 24 meses</p>
+          <a href="solicitar.html" class="btn">Solicitar</a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+     <p>&copy; 2025 Ingeniería Web solucione S.A.S </p>
+    <p>Contacto: info@creditsmart.com</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Solicitar Crédito - CreditSmart</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+
+  <!-- NAVEGACIÓN -->
+  <nav class="navbar">
+    <div class="container">
+      <h1 class="logo">
+        <img src="Img/Logo cerdito.ico" alt="Logo cerdito" width="40" style="vertical-align: middle; margin-right: 8px;" />
+        CreditSmart
+      </h1>
+      <ul class="menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="simulador.html">Simulador</a></li>
+        <li><a href="solicitar.html">Solicitar Crédito</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ENCABEZADO -->
+  <header class="hero">
+    <div class="container">
+      <h2>Formulario de Solicitud</h2>
+      <p>Completa los datos para solicitar tu crédito en línea.</p>
+    </div>
+  </header>
+
+  <!-- FORMULARIO -->
+  <main class="container">
+    <form class="formulario-solicitud">
+
+      <!-- DATOS PERSONALES -->
+      <fieldset>
+        <legend>Datos Personales</legend>
+
+        <label for="nombre">Nombre completo:</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Ej: Disbeidy Anzueta" required />
+
+        <label for="cedula">Cédula:</label>
+        <input type="number" id="cedula" name="cedula" placeholder="Ej: 1006449853" required />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Ej: ejemplo@correo.com" required />
+
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono" placeholder="Ej: 3204615438" required />
+      </fieldset>
+
+      <!-- DATOS DEL CRÉDITO -->
+      <fieldset>
+        <legend>Datos del Crédito</legend>
+
+        <label for="tipo">Tipo de crédito:</label>
+        <select id="tipo" name="tipo" required>
+          <option value="">Seleccione un tipo de crédito</option>
+          <option value="libre">Crédito Libre Inversión</option>
+          <option value="vehiculo">Crédito Vehículo</option>
+          <option value="vivienda">Crédito Vivienda</option>
+          <option value="educativo">Crédito Educativo</option>
+          <option value="empresarial">Crédito Empresarial</option>
+          <option value="ahorro">Crédito Ahorro Programado</option>
+        </select>
+
+        <label for="monto">Monto solicitado:</label>
+        <input type="number" id="monto" name="monto" placeholder="Ej: 5000000" required />
+
+        <label for="plazo">Plazo en meses:</label>
+        <select id="plazo" name="plazo" required>
+          <option value="">Seleccione plazo</option>
+          <option value="12">12 meses</option>
+          <option value="24">24 meses</option>
+          <option value="36">36 meses</option>
+          <option value="48">48 meses</option>
+          <option value="60">60 meses</option>
+        </select>
+
+        <label for="destino">Destino del crédito:</label>
+        <textarea id="destino" name="destino" rows="3" placeholder="Ej: Compra de computador portátil" required></textarea>
+      </fieldset>
+
+      <!-- DATOS LABORALES -->
+      <fieldset>
+        <legend>Datos Laborales</legend>
+
+        <label for="empresa">Empresa donde trabaja:</label>
+        <input type="text" id="empresa" name="empresa" placeholder="Ej: Ingeniería Web S.A.S" required />
+
+        <label for="cargo">Cargo:</label>
+        <input type="text" id="cargo" name="cargo" placeholder="Ej: Desarrolladora Junior" required />
+
+        <label for="ingresos">Ingresos mensuales:</label>
+        <input type="number" id="ingresos" name="ingresos" placeholder="Ej: 1800000" required />
+      </fieldset>
+
+      <!-- BOTONES -->
+      <div class="botones-formulario">
+        <button type="submit">Enviar Solicitud</button>
+        <button type="reset">Limpiar Formulario</button>
+      </div>
+
+    </form>
+  </main>
+
+  <!-- PIE DE PÁGINA -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Ingeniería Web Soluciones S.A.S</p>
+      <p>Contacto: info@creditsmart.com</p>
+    </div>
+  </footer>
+
+</body>
+</html>
