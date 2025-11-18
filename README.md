@@ -39,13 +39,13 @@ CreditSmart/
 ## 🖼️ Capturas de pantalla
 
 ### Página principal
-[Inicio](Img/inicio.png)
+CreditSmart/Img/Inicio.png
 
 ### Simulador de créditos
-[Simulador](Img/simulador.png)
+CrediSmart/Img/simulador.png
 
 ### Formulario de solicitud
-[Solicitar](Img/solicitar.png)
+CrediSmart/Img/solicitar.png
 
 ---
 
