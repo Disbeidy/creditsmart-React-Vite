@@ -28,18 +28,22 @@ El objetivo es brindar una plataforma confiable y fácil de usar para comparar y
 
 ## ⚙️ Instrucciones de instalación
 
-1. Clonar el repositorio:
+1. ## Clonar el repositorio:
    ```bash
-   git clone https://github.com/usuario/creditsmart.git
+   git clone https://github.com/Disbeidy/creditsmart-React-Vite.git
    cd creditsmart
+   npm install
+   npm run dev
+   http://localhost:5173/
 
-## 📸 Capturas de pantalla
+## Capturas de pantalla
 
-### 🏠 Página de Inicio
-![Home Screenshot](./screenshots/home.png)
+### Página de Inicio
+### Página de Inicio
+![Home Img](/Img/inicio.png)
 
-### 📊 Simulador de Créditos
-![Simulador Screenshot](./screenshots/simulador.png)
+### Simulador de Créditos
+![Simulador Img](/Img/simulador.png)
 
-### 📝 Formulario de Solicitud
-![Solicitud Screenshot](./screenshots/solicitar.png)
+### Formulario de Solicitud
+![Solicitud Img](/Img/solicitar.png)
