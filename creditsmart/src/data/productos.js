@@ -1,0 +1,1 @@
+import { productos } from '../data/productos';
