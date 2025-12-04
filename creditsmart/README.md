@@ -26,9 +26,9 @@ El objetivo es brindar una plataforma confiable y fácil de usar para comparar y
 
 ---
 
-## ⚙️ Instrucciones de instalación
+## Instrucciones de instalación
 
-1. ## Clonar el repositorio:
+1. Clonar el repositorio:
    ```bash
    git clone https://github.com/Disbeidy/creditsmart-React-Vite.git
    cd creditsmart
