@@ -6,7 +6,7 @@ export default function Home() {
         <div className="container nav-container">
           <h1 className="logo">
             <img
-              src="/Img/logo cerdito.ico" 
+              src="/CreditSmart/creditsmart/public/Logo cerdito.ico"
               width="60"
               style={{ verticalAlign: "middle", marginRight: "8px" }}
             />
