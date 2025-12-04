@@ -45,10 +45,10 @@ El objetivo es brindar una plataforma confiable y fácil de usar para comparar y
 ## Capturas de pantalla
 
 ### Página de Inicio
-![Home Img](/Img/inicio.png)
+![Home Img](/CreditSmart/public/inicio.png)
 
 ### Simulador de Créditos
-![Simulador Img](/Img/simulador.png)
+![Simulador Img](/CreditSmart/public/simulador.png)
 
 ### Formulario de Solicitud
-![Solicitud Img](/Img/solicitar.png)
+![Solicitud Img](/CreditSmart/public/solicitar.png)
