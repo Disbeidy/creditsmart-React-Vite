@@ -16,21 +16,63 @@ export default function Solicitar() {
   });
 
   const [mensaje, setMensaje] = useState("");
+  const [solicitudes, setSolicitudes] = useState([]); // array en memoria
+  const [cuota, setCuota] = useState(null);
 
-  // Manejar cambios en los inputs
+  // Manejar cambios en los inputs con validaciones en tiempo real
   const handleChange = (e) => {
     const { name, value } = e.target;
+
+    // Validaciones simples
+    if (name === "email" && value && !value.includes("@")) {
+      setMensaje("❌ El correo debe contener '@'");
+    } else if (name === "telefono" && value && value.length < 7) {
+      setMensaje("❌ El teléfono debe tener al menos 7 dígitos");
+    } else {
+      setMensaje("");
+    }
+
     setFormData({
       ...formData,
       [name]: value,
     });
+
+    // Calcular cuota mensual automáticamente si cambia monto o plazo
+    if (name === "monto" || name === "plazo") {
+      calcularCuota(formData.monto || value, 18, formData.plazo || value);
+    }
+  };
+
+  // Calcular cuota mensual estimada
+  const calcularCuota = (monto, tasa = 18, plazo) => {
+    const M = parseFloat(monto);
+    const i = parseFloat(tasa) / 100;
+    const n = parseInt(plazo);
+
+    if (!M || !i || !n) {
+      setCuota(null);
+      return;
+    }
+
+    const mensual = (M * (i / 12)) / (1 - Math.pow(1 + i / 12, -n));
+    setCuota(
+      mensual.toLocaleString("es-CO", {
+        style: "currency",
+        currency: "COP",
+        maximumFractionDigits: 0,
+      })
+    );
   };
 
   // Manejar envío del formulario
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aquí podrías enviar los datos a un backend o API
-    console.log("Solicitud enviada:", formData);
+
+    // Guardar solicitud en memoria
+    setSolicitudes([...solicitudes, formData]);
+
+    // Mostrar resumen antes de enviar
+    console.log("Resumen de solicitud:", formData);
 
     setMensaje(
       `✅ Solicitud enviada correctamente. Gracias ${formData.nombre}, pronto nos comunicaremos contigo.`
@@ -50,6 +92,7 @@ export default function Solicitar() {
       cargo: "",
       ingresos: "",
     });
+    setCuota(null);
   };
 
   return (
@@ -208,6 +251,14 @@ export default function Solicitar() {
               required
             />
           </fieldset>
+
+          {/* RESUMEN */}
+          {formData.monto && formData.plazo && (
+            <p style={{ marginTop: "1rem", fontWeight: "bold", color: "#004080" }}>
+              Resumen: Solicitas {parseInt(formData.monto).toLocaleString("es-CO")} COP a {formData.plazo} meses.
+              {cuota && <> Cuota mensual estimada: {cuota}</>}
+            </p>
+          )}
 
           {/* BOTONES */}
           <div className="form-buttons">
