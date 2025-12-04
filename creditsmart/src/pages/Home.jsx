@@ -1,6 +1,24 @@
 export default function Home() {
   return (
     <>
+    {/* NAVEGACIÓN */}
+      <nav className="navbar">
+        <div className="container nav-container">
+          <h1 className="logo">
+            <img
+              src="/Img/logo cerdito.ico" 
+              width="60"
+              style={{ verticalAlign: "middle", marginRight: "8px" }}
+            />
+            CreditSmart
+          </h1>
+          <ul className="menu">
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/simulador">Simulador</a></li>
+            <li><a href="/solicitar">Solicitar Crédito</a></li>
+          </ul>
+        </div>
+      </nav>
 
       {/* BANNER PRINCIPAL */}
       <header className="hero">
