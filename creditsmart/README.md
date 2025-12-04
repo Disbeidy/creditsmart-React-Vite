@@ -32,13 +32,18 @@ El objetivo es brindar una plataforma confiable y fácil de usar para comparar y
    ```bash
    git clone https://github.com/Disbeidy/creditsmart-React-Vite.git
    cd creditsmart
+
+2. Instalar dependencias:
    npm install
+
+3. Ejecutar el servidor de desarrollo:
    npm run dev
+
+4. Abrir en el navegador:
    http://localhost:5173/
 
 ## Capturas de pantalla
 
-### Página de Inicio
 ### Página de Inicio
 ![Home Img](/Img/inicio.png)
 
