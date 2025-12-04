@@ -1,3 +1,5 @@
+import CreditCard from "../components/CreditCard";
+
 export default function Home() {
   return (
     <>
@@ -14,21 +16,16 @@ export default function Home() {
         <section className="section credits">
           <h3 className="section-title">Nuestros productos</h3>
           <div className="credits-grid">
-            {/* Tarjetas de crédito */}
             {productos.map((producto, index) => (
-              <article className="credit-card" key={index}>
-                <div className="card-header">
-                  <span className="icon">{producto.icono}</span>
-                  <h4>{producto.titulo}</h4>
-                </div>
-                <p>{producto.descripcion}</p>
-                <div className="details">
-                  <div className="detail-item"><span className="label">Tasa de interés</span><span className="value">{producto.tasa}</span></div>
-                  <div className="detail-item"><span className="label">Monto</span><span className="value">{producto.monto}</span></div>
-                  <div className="detail-item"><span className="label">Plazo</span><span className="value">{producto.plazo}</span></div>
-                </div>
-                <a href="/solicitar" className="btn-primary" aria-label={`Solicitar ${producto.titulo.toLowerCase()}`}>Solicitar ahora</a>
-              </article>
+              <CreditCard
+                key={index}
+                icono={producto.icono}
+                titulo={producto.titulo}
+                descripcion={producto.descripcion}
+                tasa={producto.tasa}
+                monto={producto.monto}
+                plazo={producto.plazo}
+              />
             ))}
           </div>
         </section>
@@ -58,52 +55,10 @@ export default function Home() {
 }
 
 const productos = [
-  {
-    icono: '💰',
-    titulo: 'Crédito Libre Inversión',
-    descripcion: 'Obtén dinero rápido para cualquier necesidad sin justificar su uso.',
-    tasa: '18% anual',
-    monto: '$1M - $30M',
-    plazo: 'Hasta 60 meses',
-  },
-  {
-    icono: '🚗',
-    titulo: 'Crédito Vehículo',
-    descripcion: 'Financia la compra de tu carro nuevo o usado con tasas preferenciales.',
-    tasa: '15% anual',
-    monto: '$5M - $80M',
-    plazo: 'Hasta 72 meses',
-  },
-  {
-    icono: '🏠',
-    titulo: 'Crédito Vivienda',
-    descripcion: 'Haz realidad el sueño de tener casa propia con facilidades de pago.',
-    tasa: '12% anual',
-    monto: '$50M - $500M',
-    plazo: 'Hasta 180 meses',
-  },
-  {
-    icono: '🎓',
-    titulo: 'Crédito Educativo',
-    descripcion: 'Invierte en tu futuro con créditos diseñados para tus estudios universitarios.',
-    tasa: '13% anual',
-    monto: '$500K - $50M',
-    plazo: 'Hasta 84 meses',
-  },
-  {
-    icono: '🏢',
-    titulo: 'Crédito Empresarial',
-    descripcion: 'Impulsa tu negocio con capital flexible para tus proyectos empresariales.',
-    tasa: '16% anual',
-    monto: '$10M - $300M',
-    plazo: 'Hasta 120 meses',
-  },
-  {
-    icono: '👤',
-    titulo: 'Crédito Personal',
-    descripcion: 'Ideal para gastos imprevistos o pequeños proyectos personales.',
-    tasa: '20% anual',
-    monto: '$500K - $10M',
-    plazo: 'Hasta 36 meses',
-  },
+  { icono: "💰", titulo: "Crédito Libre Inversión", descripcion: "Obtén dinero rápido...", tasa: "18% anual", monto: "$1M - $30M", plazo: "Hasta 60 meses" },
+  { icono: "🚗", titulo: "Crédito Vehículo", descripcion: "Financia la compra...", tasa: "15% anual", monto: "$5M - $80M", plazo: "Hasta 72 meses" },
+  { icono: "🏠", titulo: "Crédito Vivienda", descripcion: "Haz realidad el sueño...", tasa: "12% anual", monto: "$50M - $500M", plazo: "Hasta 180 meses" },
+  { icono: "🎓", titulo: "Crédito Educativo", descripcion: "Invierte en tu futuro...", tasa: "13% anual", monto: "$500K - $50M", plazo: "Hasta 84 meses" },
+  { icono: "🏢", titulo: "Crédito Empresarial", descripcion: "Impulsa tu negocio...", tasa: "16% anual", monto: "$10M - $300M", plazo: "Hasta 120 meses" },
+  { icono: "👤", titulo: "Crédito Personal", descripcion: "Ideal para gastos...", tasa: "20% anual", monto: "$500K - $10M", plazo: "Hasta 36 meses" },
 ];
