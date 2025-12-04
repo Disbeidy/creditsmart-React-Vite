@@ -7,7 +7,7 @@ export default function Navbar() {
       <div className="container nav-container">
         <h1 className="logo">
           <img
-            src="/public/logo.png"
+            src="/logo.png"
             width="80"
             style={{ verticalAlign: "middle", marginRight: "8px" }}
           />
