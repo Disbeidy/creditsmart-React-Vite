@@ -3,7 +3,7 @@ Aplicación web desarrollada con **React + Vite** que permite explorar productos
 
 
 ## Nombre del estudiante
-**Disbeidy Anzueta Gongora**
+**Disbeidy Anzueta Gongora** y
 **Daniela Anzueta Gongora**
 
 ---
