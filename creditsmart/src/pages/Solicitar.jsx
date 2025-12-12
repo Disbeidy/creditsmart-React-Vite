@@ -1,4 +1,8 @@
+import Footer from "../components/Footer";
 import { useState } from "react";
+import { creditsData } from "../data/creditsData";
+import { db } from "../firebase/config";
+import { collection, addDoc } from "firebase/firestore";
 
 export default function Solicitar() {
   const [formData, setFormData] = useState({
@@ -25,9 +29,9 @@ export default function Solicitar() {
 
     // Validaciones simples
     if (name === "email" && value && !value.includes("@")) {
-      setMensaje("❌ El correo debe contener '@'");
+      setMensaje("El correo debe contener '@'");
     } else if (name === "telefono" && value && value.length < 7) {
-      setMensaje("❌ El teléfono debe tener al menos 7 dígitos");
+      setMensaje("El teléfono debe tener al menos 7 dígitos");
     } else {
       setMensaje("");
     }
@@ -65,34 +69,45 @@ export default function Solicitar() {
   };
 
   // Manejar envío del formulario
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Guardar solicitud en memoria
-    setSolicitudes([...solicitudes, formData]);
+    try {
+      // Guardar en Firebase
+      await addDoc(collection(db, "solicitudes"), {
+        ...formData,
+        cuotaEstimada: cuota || null,
+        fecha: new Date().toISOString(),
+      });
 
-    // Mostrar resumen antes de enviar
-    console.log("Resumen de solicitud:", formData);
+      // Guardar solicitud en memoria
+      setSolicitudes([...solicitudes, formData]);
 
-    setMensaje(
-      `✅ Solicitud enviada correctamente. Gracias ${formData.nombre}, pronto nos comunicaremos contigo.`
-    );
+      // Mensaje de éxito
+      setMensaje(
+        `Solicitud enviada correctamente. Gracias ${formData.nombre}, pronto nos comunicaremos contigo.`
+      );
 
-    // Limpiar formulario
-    setFormData({
-      nombre: "",
-      cedula: "",
-      email: "",
-      telefono: "",
-      tipo: "",
-      monto: "",
-      plazo: "",
-      destino: "",
-      empresa: "",
-      cargo: "",
-      ingresos: "",
-    });
-    setCuota(null);
+      // Limpiar formulario
+      setFormData({
+        nombre: "",
+        cedula: "",
+        email: "",
+        telefono: "",
+        tipo: "",
+        monto: "",
+        plazo: "",
+        destino: "",
+        empresa: "",
+        cargo: "",
+        ingresos: "",
+      });
+      setCuota(null);
+
+    } catch (error) {
+      console.error("Error al guardar la solicitud:", error);
+      setMensaje("Ocurrió un error al enviar la solicitud. Inténtalo más tarde.");
+    }
   };
 
   return (
@@ -168,12 +183,9 @@ export default function Solicitar() {
               required
             >
               <option value="">Seleccione una opción</option>
-              <option>Crédito Libre Inversión</option>
-              <option>Crédito Vehículo</option>
-              <option>Crédito Vivienda</option>
-              <option>Crédito Educativo</option>
-              <option>Crédito Empresarial</option>
-              <option>Crédito Personal</option>
+              {creditsData.map((credit) => (
+                <option key={credit.titulo}>{credit.titulo}</option>
+              ))}
             </select>
 
             <label htmlFor="monto">Monto solicitado:</label>
@@ -298,25 +310,8 @@ export default function Solicitar() {
         )}
       </main>
 
-      {/* FOOTER */}
-      <footer className="footer">
-        <div className="container footer-container">
-          <div className="footer-col">
-            <h5>CreditSmart</h5>
-            <p>Tu aliado confiable para encontrar el crédito ideal.</p>
-          </div>
-          <div className="footer-col">
-            <h5>Enlaces útiles</h5>
-            <a href="#">Política de privacidad</a>
-          </div>
-          <div className="footer-col">
-            <h5>Contáctanos</h5>
-            <p>📍 Villanueva, Colombia</p>
-            <p>📞 +57 300 452 7597</p>
-            <p>📧 contacto@creditsmart.co</p>
-          </div>
-        </div>
-      </footer>
+      {/* FOOTER REUTILIZABLE */}
+      <Footer />
     </>
   );
 }

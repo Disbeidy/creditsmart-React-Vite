@@ -1,59 +1,11 @@
+import Footer from '../components/Footer';
 import { useState } from 'react';
-const productos = [
-  {
-    icono: '💰',
-    titulo: 'Crédito Libre Inversión',
-    descripcion: 'Obtén dinero rápido para cualquier necesidad sin justificar su uso.',
-    tasa: '18',
-    monto: '30000000',
-    plazo: '60',
-  },
-  {
-    icono: '🚗',
-    titulo: 'Crédito Vehículo',
-    descripcion: 'Financia la compra de tu carro nuevo o usado con tasas preferenciales.',
-    tasa: '15',
-    monto: '80000000',
-    plazo: '72',
-  },
-  {
-    icono: '🏠',
-    titulo: 'Crédito Vivienda',
-    descripcion: 'Haz realidad el sueño de tener casa propia con facilidades de pago.',
-    tasa: '12',
-    monto: '500000000',
-    plazo: '180',
-  },
-  {
-    icono: '🎓',
-    titulo: 'Crédito Educativo',
-    descripcion: 'Invierte en tu futuro con créditos diseñados para tus estudios universitarios.',
-    tasa: '13',
-    monto: '50000000',
-    plazo: '84',
-  },
-  {
-    icono: '🏢',
-    titulo: 'Crédito Empresarial',
-    descripcion: 'Impulsa tu negocio con capital flexible para tus proyectos empresariales.',
-    tasa: '16',
-    monto: '300000000',
-    plazo: '120',
-  },
-  {
-    icono: '👤',
-    titulo: 'Crédito Personal',
-    descripcion: 'Ideal para gastos imprevistos o pequeños proyectos personales.',
-    tasa: '20',
-    monto: '10000000',
-    plazo: '36',
-  },
-];
+import { creditsData } from '../data/creditsData';
 
 export default function Simulador() {
   const [buscar, setBuscar] = useState('');
   const [monto, setMonto] = useState('');
-  const [resultados, setResultados] = useState(productos);
+  const [resultados, setResultados] = useState(creditsData);
 
   // Estados para simulación personalizada
   const [montoPersonal, setMontoPersonal] = useState('');
@@ -71,7 +23,7 @@ export default function Simulador() {
       '100-500': [100, 500],
     };
 
-    const filtrados = productos.filter((p) => {
+    const filtrados = creditsData.filter((p) => {
       const nombreCoincide = p.titulo.toLowerCase().includes(buscar.toLowerCase());
       const montoNum = parseInt(p.monto);
 
@@ -122,7 +74,7 @@ export default function Simulador() {
   };
 
   return (
-  <>
+    <>
       {/* ENCABEZADO */}
       <header className="hero">
         <div className="container">
@@ -208,69 +160,53 @@ export default function Simulador() {
         </form>
       </section>
 
-  {/* RESULTADOS */}
-<main className="container">
-  <section className="section credits">
-    <h3>Resultados</h3>
-    <div className="credits-grid">
-      {resultados.length > 0 ? (
-        resultados.map((producto, index) => (
-          <article className="credit-card" key={index}>
-            <div className="card-header">
-              <span className="icon">{producto.icono}</span>
-              <h4>{producto.titulo}</h4>
-            </div>
-            <p>{producto.descripcion}</p>
-            <div className="details">
-              <div className="detail-item">
-                <span className="label">Tasa de interés</span>
-                <span className="value">{producto.tasa}% anual</span>
-              </div>
-              <div className="detail-item">
-                <span className="label">Monto</span>
-                <span className="value">
-                  {parseInt(producto.monto).toLocaleString('es-CO')} COP
-                </span>
-              </div>
-              <div className="detail-item">
-                <span className="label">Plazo</span>
-                <span className="value">{producto.plazo} meses</span>
-              </div>
-              <div className="detail-item">
-                <span className="label">Cuota mensual estimada</span>
-                <span className="value">
-                  {calcularCuota(producto.monto, producto.tasa, producto.plazo)}
-                </span>
-              </div>
-            </div>
-            <a href="/solicitar" className="btn-primary">Solicitar ahora</a>
-          </article>
-        ))
-      ) : (
-        <p>No se encontraron resultados.</p>
-      )}
-    </div>
-  </section>
-</main>
-  {/* FOOTER */}
-      <footer className="footer">
-        <div className="container footer-container">
-          <div className="footer-col">
-            <h5>CreditSmart</h5>
-            <p>Tu aliado confiable para encontrar el crédito ideal.</p>
+      {/* RESULTADOS */}
+      <main className="container">
+        <section className="section credits">
+          <h3>Resultados</h3>
+          <div className="credits-grid">
+            {resultados.length > 0 ? (
+              resultados.map((producto, index) => (
+                <article className="credit-card" key={index}>
+                  <div className="card-header">
+                    <span className="icon">{producto.icono}</span>
+                    <h4>{producto.titulo}</h4>
+                  </div>
+                  <p>{producto.descripcion}</p>
+                  <div className="details">
+                    <div className="detail-item">
+                      <span className="label">Tasa de interés</span>
+                      <span className="value">{producto.tasa}% anual</span>
+                    </div>
+                    <div className="detail-item">
+                      <span className="label">Monto</span>
+                      <span className="value">
+                        {parseInt(producto.monto).toLocaleString('es-CO')} COP
+                      </span>
+                    </div>
+                    <div className="detail-item">
+                      <span className="label">Plazo</span>
+                      <span className="value">{producto.plazo} meses</span>
+                    </div>
+                    <div className="detail-item">
+                      <span className="label">Cuota mensual estimada</span>
+                      <span className="value">
+                        {calcularCuota(producto.monto, producto.tasa, producto.plazo)}
+                      </span>
+                    </div>
+                  </div>
+                  <a href="/solicitar" className="btn-primary">Solicitar ahora</a>
+                </article>
+              ))
+            ) : (
+              <p>No se encontraron resultados.</p>
+            )}
           </div>
-          <div className="footer-col">
-            <h5>Enlaces útiles</h5>
-            <a href="#">Política de privacidad</a>
-          </div>
-          <div className="footer-col">
-            <h5>Contáctanos</h5>
-            <p>📍 Villanueva, Colombia</p>
-            <p>📞 +57 300 452 7597</p>
-            <p>📧 contacto@creditsmart.co</p>
-          </div>
-        </div>
-      </footer>
+        </section>
+      </main>
+
+      {/* FOOTER REUTILIZABLE */}
+      <Footer />
     </>
   );
 }

@@ -17,6 +17,7 @@ export default function Navbar() {
           <li><Link to="/">Inicio</Link></li>
           <li><Link to="/simulador">Simulador</Link></li>
           <li><Link to="/solicitar">Solicitar Crédito</Link></li>
+          <li><Link to="/solicitudes">Solicitudes</Link></li>
         </ul>
       </div>
     </nav>
